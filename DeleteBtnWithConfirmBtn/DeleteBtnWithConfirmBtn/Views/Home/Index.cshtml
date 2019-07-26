@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div style="margin-top:40px">
+        <h2>Product List</h2>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>LastName</th>
+                <th>FirstName</th>
+                <th>Title</th>
+                <th>City</th>
+                <th>Confirm Delete Zone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.LastName</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.Title</td>
+                    <td>@item.City</td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID }, new { onclick = "return confirm('Are you sure wish to delete this employee? ');" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
